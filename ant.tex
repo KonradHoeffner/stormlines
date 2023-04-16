@@ -1,9 +1,26 @@
 \documentclass{article}
 \usepackage{booktabs}
+%\usepackage{pifont}
+%\DeclareFontFamily{U}{magic}{}
+%\DeclareFontShape{U}{magic}{m}{n}{<-> magic}{}
+\usepackage{mathtools}
+\def\multiset#1#2{\ensuremath{\left(\kern-.3em\left(\genfrac{}{}{0pt}{}{#1}{#2}\right)\kern-.3em\right)}}
+
+\usepackage{cleveref}
+
+\newcommand{\dr}{DR}
+\newcommand{\crn}{CR$^-$}
+\newcommand{\crt}{CR$^+$}
+\newcommand{\lp}{LP}
+\newcommand{\led}{LED}
 
 \title{Legacy Ad Nauseam Tendrils Lines}
 \begin{document}
+
 \maketitle
+
+%\Pisymbol{magic}{66}
+
 \begin{abstract}
 \end{abstract}
 \section{Introduction}
@@ -24,21 +41,34 @@ chance $\geq$	100		&97.2	&91.7	&83.3	&72.2	&58.3	&41.7	&27.8	&16.7	&8.3	&2.8\\
 \end{tabular}
 %\caption{sum of two D6}
 
-\begin{tabular}{@{}lllll@{}}
+\begin{tabular}{@{}llllll@{}}
 \toprule
-\textbf{Name}				&\textbf{Type} &\textbf{Cost}	&\textbf{Output}	&\textbf{Net Output} \\ 
+\textbf{Symbol}	&\textbf{Name}				&\textbf{Type} &\textbf{Cost}	&\textbf{Output}	&\textbf{Net Output} \\ 
 \midrule
-Dark Ritual					&Ritual			&B				&BBB				&BB\\
-Cabal Ritual				&Ritual			&1B				&BBB				&B\\
-Cabal Ritual Threshold		&Ritual			&1B				&BBBBB				&BBB\\
-Lotus Petal					&Rock			&0				&X					&X\\
-Lion's Eye Diamond			&Rock			&0				&XXX				&XXX\\
+\dr{}			&Dark Ritual					&Ritual			&B				&BBB				&BB\\
+\crn{}			&Cabal Ritual				&Ritual			&1B				&BBB				&B\\
+\crt{}			&Cabal Ritual Threshold		&Ritual			&1B				&BBBBB				&BBB\\
+\lp{}			&Lotus Petal					&Rock			&0				&X					&X\\
+\led{}			&Lion's Eye Diamond			&Rock			&0				&XXX				&XXX\\
 \bottomrule
 \end{tabular}
 
+\cref{tab:it3} shows all combinations of infernal tutor and three non-land mana sources.
+Because order does not matter but repetition is possible, the number of such k-combinations from a set of size $n$
+can be calculated as
+\[ \multiset{n}{k} = { n + k -1 \choose k } \]
+For combinations of three mana sources we get
+\[ \multiset{4}{3} = { 6 \choose 3 } = \frac{6!}{3! (6-3)! } = \frac{720}{36} = 20 \]
+
+
+
 %\caption{nonland mana sources}
 
+\begin{table}
 \begin{tabular}{lll}
 \end{tabular}
+\caption{Combination of three mana sources and infernal tutor. }
+\label{tab:it3}
+\end{table}
 
 \end{document}
